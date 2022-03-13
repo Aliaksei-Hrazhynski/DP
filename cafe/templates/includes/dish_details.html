@@ -1,0 +1,108 @@
+{% load static %}
+{% block dish_details %}
+<div class="header-wrapper-push"></div>
+<div class="push20"></div>
+<div class="middle">
+    <div class="push50 hidden-xs"></div>
+    <div class="push30 visible-xs"></div>
+    <div class="container">
+        <div class="product-detail">
+            <h1 class="visible-xs visible-sm">{{ dish.title }}</h1>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="product-img-wrapper relative lightgallery" style="background: #fff; padding: 30px;">
+                        <a href="{% static dish.image %}" class="lightgallery-link absolute">
+                            <div class="table">
+                                <div class="table-cell text-center">
+                                    <i class="material-icons">zoom_in</i>
+                                </div>
+                            </div>
+                        </a>
+                        <img src="{% static dish.image %}" alt="{{ dish.title }}">
+                        <div class="stickers">
+                            {% if dish.flag_promotion %}
+                                <div class="sticker-element action">Акция!</div>
+                            {% endif %}
+                            {% if dish.flag_popular %}
+                                <div class="sticker-element hit">Популярное</div>
+                            {% endif %}
+                            {% if dish.flag_novelty %}
+                                <div class="sticker-element novelty">Новинка</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="push15"></div>
+                    <span class="product-weight">{{dish.dish_weight}} гр.</span>
+                    <div class="push15"></div>
+                    <div class="calories-wrapper">
+                        <div class="push15"></div>
+                        <span>Белки: 5 гр.</span>
+                        <span>Жиры: 15 гр.</span>
+                        <span>Углеводы: 22,5 гр.</span>
+                        <span>Ккал: 220</span>
+                        <div class="push25"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="product-detail-content">
+                        <h1 class="visible-md visible-lg">{{ dish.title }}</h1>
+                        <form class="form-horizontal ms2_form" method="post">
+                            <input type="hidden" name="id" value="108">
+                            <div class="introtext f14">{{ dish.description }}</div>
+                            <hr>
+                            <div class="push10"></div>
+                            <div class="characteristics">
+                                <div class="element">
+                                    <span class="black bold">Свинина на косточке:</span> 300 гр.
+                                    <div class="push10"></div>
+                                </div>
+                            <div class="element">
+                                <span class="black bold">Свинина на ребрышках:</span> 200 гр.
+                                <div class="push10"></div>
+                            </div>
+                            <div class="element">
+                                <span class="black bold">Свинина - вырезка:</span> 110 гр.
+                                <div class="push10"></div>
+                            </div>
+                            <div class="element">
+                                <span class="black bold">Дополнительно:</span> лук 30 г, кетчуп 12 г,  лаваш армянскии 1шт.
+                                <div class="push10"></div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="push20"></div>
+                                <div class="col-sm-4 col-md-6 col-lg-4">
+                                    <div class="element">
+                                        <div class="push10"></div>
+                                        <div class="element-counter">
+                                            <div class="input-group">
+                                                <span class="black bold">Количество:</span>
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn-number btn-minus" disabled="disabled" data-type="minus" data-field="count-108">-</button>
+                                                </span>
+                                                <input type="text" name="count" id="count-108" class="form-control input-number" value="1" data-min="1" data-max="99">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn-number btn-plus" data-type="plus" data-field="count-108">+</button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="push20"></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-6 col-lg-4">
+                                    <div class="price-wrap f26 weight900"><span class="price">180 руб.</span> <span class="old-price strike gray weight100 f16">210 руб.</span></div>
+                                    <div class="push30"></div>
+                                </div>
+                                <div class="col-sm-4 col-md-6 col-lg-4">
+                                    <button type="submit" class="btn big block" name="ms2_action" value="cart/add">В корзину</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="push50"></div>
+</div>
+{% endblock %}

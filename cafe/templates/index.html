@@ -1,0 +1,400 @@
+<html class="js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+{% load static %}
+<title>Главная | Доставка обедов.</title>
+<base href=".">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="robots" content="index,follow">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" type="text/css" />
+<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
+<link rel="stylesheet" href="{% static 'css/font-awesome.css' %}" type="text/css" />
+<link rel="stylesheet" href="{% static 'css/animate.css' %}" type="text/css" />
+<link rel="stylesheet" href="{% static 'css/jquery.fancybox.css' %}" type="text/css" />
+<link rel="stylesheet" href="{% static 'css/lightgallery.min.css' %}" type="text/css" />
+<link rel="icon" type="image/png" href="{% static 'images/icon/icon.png' %}">
+<link rel="stylesheet" href="{% static 'css/default.css' %}" type="text/css" />
+<link rel="stylesheet" href="{% static 'css/jquery.jgrowl.min.css' %}" type="text/css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="index-template">
+{% csrf_token %}
+    <!-- Mobile menu -->
+<div class="menu-button hidden-lg">
+    <span class="icon-menu-burger">
+        <span class="icon-menu-burger__line"></span>
+    </span>
+</div>
+<div class="mobile-menu" id="mobmenu">
+    <div class="push55"></div>
+    <div class="mobile-menu-inner">
+        <ul class="">
+            <li class="first active"><a href="http://127.0.0.1:8000/">Главная</a></li>
+            <li><a href="https://shashlyk.demoultron.ru/#catalog" class="scrollto">Меню</a></li>
+            <li><a href="http://127.0.0.1:8000/payment/">Доставка и оплата</a></li>
+            <li><a href="https://shashlyk.demoultron.ru/o-nas">О нас</a></li>
+            <li><a href="https://shashlyk.demoultron.ru/otzyivyi">Отзывы</a></li>
+            <li class="last"><a href="https://shashlyk.demoultron.ru/kontaktyi">Контакты</a></li
+        </ul>
+    </div>
+    <div class="push30"></div>
+</div>
+<div class="overlay"></div>
+<!-- /. Mobile menu -->
+<div class="main-wrapper">
+    <div class="header-wrapper">
+        <div class="container">
+            <div class="header relative">
+                <div class="logo">
+                    <div class="table">
+                        <div class="table-cell">
+                            <a href="">
+                                <img src="{% static 'images/icon/icon.png' %}" alt="Доставка обедов.">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-schedule visible-lg-inline-block">
+                    <div class="push20 hidden-lg"></div>
+                    <div class="push10"></div>
+                    <div class="element">
+                        <span class="upper bold">Прием заказов:</span> c 9:00 - 21:00 Без выходных
+                    </div>
+                </div>
+                <div class="header-schedule visible-md-inline-block">
+                    <div class="table">
+                        <div class="table-cell">
+                            <span class="upper bold">Прием заказов:</span> c 9:00 - 21:00 Без выходных
+                        </div>
+                    </div>
+                </div>
+                <div class="top-menu visible-lg">
+                    <ul class=""><li class="first active"><a href="http://127.0.0.1:8000/">Главная</a></li>
+                                 <li><a href="https://shashlyk.demoultron.ru/#catalog" class="scrollto">Меню</a></li>
+                                 <li><a href="http://127.0.0.1:8000/payment/">Доставка и оплата</a></li>
+                                 <li><a href="https://shashlyk.demoultron.ru/o-nas">О нас</a></li>
+                                 <li><a href="https://shashlyk.demoultron.ru/otzyivyi">Отзывы</a></li>
+                                 <li class="last"><a href="https://shashlyk.demoultron.ru/kontaktyi">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="header-contacts">
+                    <i class="material-icons">phone</i>
+                    <div class="table">
+                        <div class="table-cell">
+                            <div class="header-tel"><a href="tel:+79010000010">+375-XX)-XXX-XX-XX</a></div>
+                            <div class="header-tel"><a href="tel:+79270000015">+375-(XX)-XXX-XX-XX</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile-bar"></div>
+                <div class="header-cart">
+                    <div id="msMiniCart" class="">
+                        <a href="https://shashlyk.demoultron.ru/korzina" class="absolute"></a>
+                        <div class="empty text-center">
+                            <div>
+                                <i class="material-icons">shopping_cart</i>
+                                <span>0</span>
+                            </div>
+                        </div>
+                        <div class="not_empty text-center">
+                            <div>
+                                <i class="material-icons">shopping_cart</i>
+                                <span class="ms2_total_count">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% block content %}
+    <div class="header-wrapper-push"></div>
+    <div class="index-products products span3" id="catalog">
+        <div class="push40"></div>
+        <div class="push30 hidden-xs"></div>
+        <div class="container">
+            <div class="text-center">
+                <ul class="simple-filter">
+                    <li class="filter active" data-filter=".category119">Шашлыки</li>
+                    <li class="filter" data-filter=".category1">Пицца</li>
+                    <li class="filter" data-filter=".category2">Вторые блюда</li>
+                    <li class="filter" data-filter=".category121">Салаты</li>
+                    <li class="filter" data-filter=".category122">Закуски</li>
+                    <li class="filter" data-filter=".category124">Напитки</li>
+                </ul>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-4 mix category119 " style="display: inline-block;" data-bound="">
+                    {% for dish in dishs %}
+                    <div class="element relative">
+                        <a class="absolute" href="/dish/{{ dish.id }}"></a>
+                        <form method="post" class="ms2_form">
+                            <div class="stickers">
+                                {% if dish.flag_promotion %}
+                                    <div class="sticker-element action">Акция!</div>
+                                {% endif %}
+                                {% if dish.flag_popular %}
+                                    <div class="sticker-element hit">Популярное</div>
+                                {% endif %}
+                                {% if dish.flag_novelty %}
+                                    <div class="sticker-element novelty">Новинка</div>
+                                {% endif %}
+                            </div>
+                            <div class="img-wrapper">
+                                <div class="table">
+                                    <div class="table-cell">
+                                        <img src="{% static dish.image %}" alt="{{dish.title}}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="element-content relative">
+                                <div class="title ttwalls">
+                                    <div class="table">
+                                        <div class="table-cell">
+                                            {{dish.title}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="introtext"><p>{{ dish.description }}</p></div>
+                                <div class="push15"></div>
+                                <div class="price-wrap">
+                                    {% if dish.flag_promotion %}
+                                        <span class="old-price strike red f16 light">{{ dish.price }} руб.</span>
+                                        <span class="price">{{ dish.price }} руб.</span>
+                                    {% else %}
+                                        <span class="price">{{ dish.price }} руб.</span>
+                                    {% endif %}
+                                    <span class="right f14 gray product-weight">Вес: {{ dish.dish_weight }} гр.</span>
+                                </div>
+                                <div class="push10"></div>
+                                <div class="row min">
+                                    <div class="col-xs-6 element-counter-wrap">
+                                        <div class="element-counter">
+                                            <div class="input-group">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn-number btn-minus" disabled="disabled" data-type="minus" data-field="count-108">-</button>
+                                                </span>
+                                                <input type="text" name="count" id="count-108" class="form-control input-number" value="1" data-min="1" data-max="99999999">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn-number btn-plus" data-type="plus" data-field="count-108">+</button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 right text-right">
+                                        <button class="btn" type="submit" name="ms2_action" value="cart/add">В корзину</button>
+                                        <input type="hidden" name="id" value="108">
+                                        <input type="hidden" name="options" value="[]">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="benefits-wrapper">
+        <div class="push30"></div>
+        <div class="push40 hidden-xs"></div>
+        <div class="container">
+            <div class="title-h1 text-center">Зуб даём, что у нас:</div>
+            <div class="push10"></div>
+            <div class="row">
+                <div class="col-sm-6 col-md-3">
+                    <div class="element text-center">
+                        <div class="img-wrapper">
+                            <img src="{% static 'images/vant1_0x128_410.png' %}" alt="Всегда свежие продукты высокого качества" with="128" height="128">
+                        </div>
+                        <div class="title">
+                            Всегда свежие продукты <br>высокого качества
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="element text-center">
+                        <div class="img-wrapper">
+                            <img src="{% static 'images/vant2_0x128_410.png' %}" alt="Лучшие повора с многолетним опытом" with="128" height="128">
+                        </div>
+                        <div class="title">
+                            Лучшие повора <br>с многолетним опытом
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="element text-center">
+                        <div class="img-wrapper">
+                            <img src="{% static 'images/vant3_0x128_410.png' %}" alt="Доставка по городу в течение 60 минут" with="128" height="128">
+                        </div>
+                        <div class="title">
+                            Доставка по городу <br>в течение 60 минут
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="element text-center">
+                        <div class="img-wrapper">
+                            <img src="{% static 'images/vant4_0x128_410.png' %}" alt="Термоупаковка c набором столовых предметов" with="128" height="128">
+                        </div>
+                        <div class="title">
+                            Термоупаковка c набором <br>столовых предметов
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="push30"></div>
+        <div class="push40 hidden-xs"></div>
+    </div>
+    <div class="index-text-section">
+        <div class="container">
+            <div class="inner text-center white">
+                <div class="title">Для лучшего вкуса и аромата блюд</div>
+                <div class="text f20">
+                    Мы используем специальные специи из Кавказа,<br> создающие неповторимый вкус
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="about-section" id="about">
+        <div class="container">
+            <div class="inner hidden visible animated fadeInUp">
+                <div class="push60"></div>
+                <div class="push20 hidden-xs"></div>
+                <div class="row">
+                    <div class="col-md-6 hidden-xs hidden-sm text-center">
+                        <img src="{% static 'images/povar2.png' %}">
+                    </div>
+                    <div class="col-md-6">
+                        <h1>Безупречный порядок — залог процветания нашего заведения!</h1>
+                        <p><q> Значимость этих проблем настолько очевидна, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации новых предложений. </q></p>
+                        <p>Равным образом новая модель организационной деятельности способствует подготовки и реализации систем массового участия. Таким образом дальнейшее развитие различных форм деятельности требуют от нас анализа направлений прогрессивного развития.</p>
+                        <p>С другой стороны дальнейшее развитие различных форм деятельности позволяет выполнять важные задания по разработке модели развития.</p>
+                        <p>С другой стороны дальнейшее развитие различных форм деятельности позволяет выполнять важные задания по разработке модели развития.</p>
+                    </div>
+                </div>
+                <div class="push80"></div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+        <div class="push60 visible-md visible-lg"></div>
+        <div class="push40 visible-xs"></div>
+        <div class="map-section">
+            <div class="container">
+                <div class="contacts hidden-xs hidden-sm">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="item relative">
+                                <div class="table">
+                                    <div class="table-cell">
+                                        <div class="inner relative">
+                                            <div class="icon"><img src="{% static 'images/icon/contact.svg' %}" alt=""></div>
+                                            <div class="txt">
+                                                <div><a href="tel:+375-XX-XXX-XX-XX">+375-XX-XXX-XX-XX</a></div>
+                                                <div><a href="tel:+375-XX-XXX-XX-XX">+375-XX-XXX-XX-XX</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="item relative">
+                                <div class="table">
+                                    <div class="table-cell">
+                                        <div class="inner relative">
+                                            <div class="icon"><img src="{% static 'images/icon/pay.svg' %}" alt=""></div>
+                                            <div class="txt">
+                                                Наличный и безналичный расчет
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="item relative">
+                                <div class="table">
+                                    <div class="table-cell">
+                                        <div class="inner relative">
+                                            <div class="icon"><img src="{% static 'images/icon/time.svg' %}" alt=""></div>
+                                            <div class="txt">c 9:00 - 21:00 Без выходных</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-push"></div>
+    </div>
+    <div class="footer-wrapper"></div>
+    <span id="up" style="display: none;"><i class="fa fa-angle-up"></i></span>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/modernizr.js' %}"></script>
+    <script src="{% static 'js/jquery.fancybox.js' %}"></script>
+    <script src="{% static 'js/slick.min.js' %}"></script>
+    <script src="{% static 'js/jquery.inputmask.js' %}"></script>
+    <script src="{% static 'js/jquery.mousewheel.js' %}"></script>
+    <script src="{% static 'js/lightgallery-all.min.js' %}"></script>
+    <script src="{% static 'js/jquery.mixitup.min.js' %}"></script>
+    <script src="{% static 'js/jquery.parallax-1.1.3.js' %}"></script>
+    <script src="{% static 'js/jquery.viewportchecker.js' %}"></script>
+    <script src="{% static 'js/onReady.js' %}"></script>
+    <script>
+        $(document).on('af_complete', function(event, response) {
+            $('body').addClass('jgrowlHide');
+                setTimeout(function() {
+                $('body').removeClass('jgrowlHide');
+            }, 5000);
+            if(response.success){
+                $.fancybox.open([{ href : '#responseMessage', padding : 0, openEffect: 'none', closeEffect: 'none', wrapCSS : 'fancybox-modal-wrap' }] );
+                $('#responseMessageTitle').text('Сообщение успешно отправлено!');
+                $('#responseMessageBody').html('<p>'+response.message+'</p>');
+                $('.fancyClose').click(function(){
+                    $.fancybox.close('#responseMessage');
+                    return false;
+                });
+            }else{
+                $.fancybox.open([{ href : '#responseMessage', padding : 0, openEffect: 'none', closeEffect: 'none', wrapCSS : 'fancybox-modal-wrap' }] );
+                $('#responseMessageTitle').text('Сообщение не отправлено!');
+                $('#responseMessageBody').html('<p>'+response.message+'</p>');
+                $('.fancyClose').click(function(){
+                    $.fancybox.close('#responseMessage');
+                    return false;
+                });
+            }
+        });
+
+
+        $(function(){
+            $('.tel, #phone').inputmask('+7 (999) 999 99 99',{
+                clearMaskOnLostFocus: true
+            });
+        });
+    </script>
+    <script>
+        $(function(){
+            // mixitup init
+            $('#catalog').mixItUp({
+                load: {
+                  filter: '.category119'
+                }
+            });
+            // mixitup init end
+        });
+
+    </script>
+    <script src="{% static 'js/default.js' %}"></script>
+    <script src="{% static 'js/jquery.jgrowl.min.js' %}"></script>
+    <script src="{% static 'js/message_settings.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static 'js/jquery.form.min.js' %}"></script>
+</body>
+</html>
