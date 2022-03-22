@@ -16,13 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from .views import index, payment, dish_details
-
+from cafe import models
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('api-auth/', include('rest_framework.urls')),
+    path('cart/', include('cart.urls'), name='cart'),
     path('', index),
     path('dish/<int:pk>', dish_details, name="dish_details"),
+
     path('payment/', payment),
 ]

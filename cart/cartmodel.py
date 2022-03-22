@@ -1,10 +1,10 @@
 from decimal import Decimal
 from django.conf import settings
-from ..cafe.models import Dish
+from cafe.models import Dish
 
 
 class Cart(object):
-    def __int__(self, request):
+    def __init__(self, request):
         self.session = request.session
         cart = self.session.get(settings.CART_SESSION_ID)
         if not cart:
@@ -47,10 +47,11 @@ class Cart(object):
         dish_ids = self.cart.keys()
         dishes = Dish.objects.filter(id__in=dish_ids)
         for dish in dishes:
-            self.cart[str(dish.id)]['dish'] = 'dish'
+            self.cart[str(dish.id)]['dish'] = dish
         for item in self.cart.values():
             item['price'] = Decimal(item['price'])
             item['total_price'] = item['price'] * item['quantity']
+            yield item
 
     def __len__(self):
         """

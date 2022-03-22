@@ -83,25 +83,19 @@
                     <i class="material-icons">phone</i>
                     <div class="table">
                         <div class="table-cell">
-                            <div class="header-tel"><a href="tel:+79010000010">+375-XX)-XXX-XX-XX</a></div>
-                            <div class="header-tel"><a href="tel:+79270000015">+375-(XX)-XXX-XX-XX</a></div>
+                            <div class="header-tel"><a href="tel:+XXXXXXXXXX">+375-XX)-XXX-XX-XX</a></div>
+                            <div class="header-tel"><a href="tel:+XXXXXXXXXX">+375-(XX)-XXX-XX-XX</a></div>
                         </div>
                     </div>
                 </div>
                 <div class="mobile-bar"></div>
                 <div class="header-cart">
-                    <div id="msMiniCart" class="">
-                        <a href="https://shashlyk.demoultron.ru/korzina" class="absolute"></a>
-                        <div class="empty text-center">
-                            <div>
-                                <i class="material-icons">shopping_cart</i>
-                                <span>0</span>
-                            </div>
-                        </div>
+                    <div id="msMiniCart" class="full">
+                        <a href="http://127.0.0.1:8000/cart/cart_details/" class="absolute"></a>
                         <div class="not_empty text-center">
                             <div>
                                 <i class="material-icons">shopping_cart</i>
-                                <span class="ms2_total_count">0</span>
+                                <span class="ms2_total_count">{{ cart|length }}</span>
                             </div>
                         </div>
                     </div>
@@ -117,20 +111,22 @@
         <div class="container">
             <div class="text-center">
                 <ul class="simple-filter">
-                    <li class="filter active" data-filter=".category119">Шашлыки</li>
-                    <li class="filter" data-filter=".category1">Пицца</li>
+                    <li class="filter active" data-filter=".category1">Супы</li>
                     <li class="filter" data-filter=".category2">Вторые блюда</li>
-                    <li class="filter" data-filter=".category121">Салаты</li>
-                    <li class="filter" data-filter=".category122">Закуски</li>
-                    <li class="filter" data-filter=".category124">Напитки</li>
+                    <li class="filter" data-filter=".category3">Салаты</li>
+                    <li class="filter" data-filter=".category4">Закуски</li>
+                    <li class="filter" data-filter=".category5">Напитки</li>
                 </ul>
             </div>
+
             <div class="row">
-                <div class="col-sm-6 col-md-4 mix category119 " style="display: inline-block;" data-bound="">
-                    {% for dish in dishs %}
+                {% for dish in dishs %}
+
+                <div class="col-sm-6 col-md-4 mix category2" style="display: inline-block;" data-bound="">
                     <div class="element relative">
                         <a class="absolute" href="/dish/{{ dish.id }}"></a>
-                        <form method="post" class="ms2_form">
+                        <form action='http://127.0.0.1:8000/cart/cart_add/' {{ dish.id }} method="post" class="ms2_form">
+                            {% csrf_token %}
                             <div class="stickers">
                                 {% if dish.flag_promotion %}
                                     <div class="sticker-element action">Акция!</div>
@@ -157,7 +153,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="introtext"><p>{{ dish.description }}</p></div>
+                                <div class="introtext"><p>{{ dish.description|safe }}</p></div>
                                 <div class="push15"></div>
                                 <div class="price-wrap">
                                     {% if dish.flag_promotion %}
@@ -176,7 +172,7 @@
                                                 <span class="input-group-btn">
                                                     <button type="button" class="btn-number btn-minus" disabled="disabled" data-type="minus" data-field="count-108">-</button>
                                                 </span>
-                                                <input type="text" name="count" id="count-108" class="form-control input-number" value="1" data-min="1" data-max="99999999">
+                                                <input type="text" name="quantity" id="count-108" class="form-control input-number" value="1" data-min="1" data-max="99999999">
                                                 <span class="input-group-btn">
                                                     <button type="button" class="btn-number btn-plus" data-type="plus" data-field="count-108">+</button>
                                                 </span>
@@ -184,8 +180,9 @@
                                         </div>
                                     </div>
                                     <div class="col-xs-6 right text-right">
-                                        <button class="btn" type="submit" name="ms2_action" value="cart/add">В корзину</button>
-                                        <input type="hidden" name="id" value="108">
+                                        <button class="btn" type="submit" >В корзину</button>
+                                        <input type="hidden" name="dish" value="{{ dish }}">
+                                        <input type="hidden" name="dish_id" id='dish_id' value="{{ dish.id }}">
                                         <input type="hidden" name="options" value="[]">
                                     </div>
                                 </div>
@@ -193,10 +190,13 @@
                         </form>
                     </div>
                 </div>
+
+                {% endfor %}
             </div>
+
         </div>
     </div>
-    {% endfor %}
+
     <div class="benefits-wrapper">
         <div class="push30"></div>
         <div class="push40 hidden-xs"></div>
@@ -281,6 +281,8 @@
         </div>
     </div>
     {% endblock %}
+
+
         <div class="push60 visible-md visible-lg"></div>
         <div class="push40 visible-xs"></div>
         <div class="map-section">
