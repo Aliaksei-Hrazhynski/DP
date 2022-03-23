@@ -30,7 +30,7 @@ class Dish(models.Model):
     dish_weight = models.PositiveIntegerField(null=False, verbose_name='Вес (в граммах)')
     product = models.ManyToManyField(Product, verbose_name='Используемые продукты')
     description = models.TextField(blank=True, verbose_name='Описание')
-    image = models.ImageField(upload_to='static/images/dish/', null=True, verbose_name='Фото блюда')
+    image = models.ImageField(upload_to='images/dish/', null=True, verbose_name='Фото блюда')
     flag_promotion = models.BooleanField(blank=True, verbose_name='Акция')
     flag_popular = models.BooleanField(blank=True, verbose_name='Популярное')
     flag_novelty = models.BooleanField(blank=True, verbose_name='Новинка')
@@ -38,7 +38,6 @@ class Dish(models.Model):
 
     class Meta:
         ordering = ('title',)
-
 
     def __str__(self) -> str:
         return self.title

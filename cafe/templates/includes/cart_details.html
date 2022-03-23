@@ -69,11 +69,10 @@
                                                                         </span>
 
                                                                 </div>
-                                                                <button class="btn btn-default" type="submit1" name="ms2_action" value="cart/change"><i class="glyphicon glyphicon-refresh"></i>1111</button>
+                                                                <button class="btn" type="submit1" name="ms2_action" value="cart/change" style="background: #F58427; width: 100px" <i class="glyphicon glyphicon-refresh"></i>ok</button>
                                                                     <input type="hidden" name="dish_id" value="{{ item.dish.id }}">
                                                                     <input type="hidden" name="update_quantity" value="True">
                                                                     <input type="hidden" name="dish" value="{{ item.dish }}">
-
                                                             </form>
                                                         </div>
                                                     </div>
@@ -110,7 +109,7 @@
                                     </button>
                                     <input type="hidden" name="dish" value="{{ item.dish.id }}">
                                 </form>
-                                <a href="oformlenie-zakaza" class="btn invert">Оформить заказ <i class="material-icons">arrow_forward</i></a>
+                                <a href='http://127.0.0.1:8000/order/' class="btn invert">Оформить заказ <i class="material-icons">arrow_forward</i></a>
                              </div>
                         </div>
                     </div>

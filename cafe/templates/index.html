@@ -121,8 +121,7 @@
 
             <div class="row">
                 {% for dish in dishs %}
-
-                <div class="col-sm-6 col-md-4 mix category2" style="display: inline-block;" data-bound="">
+                <div class="col-sm-6 col-md-4 mix category{{dish.category.id}}" style="display: inline-block;" data-bound="">
                     <div class="element relative">
                         <a class="absolute" href="/dish/{{ dish.id }}"></a>
                         <form action='http://127.0.0.1:8000/cart/cart_add/' {{ dish.id }} method="post" class="ms2_form">

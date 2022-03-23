@@ -2721,8 +2721,6 @@ button[value="cart/clean"]{
         z-index: 500;
     }
 }
-
-
 @media only screen and (max-width: 440px) {
     .mobile-menu{
         width: 100%;
@@ -2750,11 +2748,6 @@ button[value="cart/clean"]{
     border: 1px solid #C7C7C7;
     border-radius: 5px;
 }
-
-
-
-
-
 .mini-container{
     max-width: 100%;
     margin: auto;
@@ -2964,20 +2957,6 @@ button[value="cart/clean"]{
 .contacts-section .box2 .element a:hover{
     color: #F58427;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /**************************************************   MEDIA QUERIS   *****************************************************/
 @media only screen and (max-width: 1329px) {
     
@@ -2994,9 +2973,6 @@ button[value="cart/clean"]{
         padding: 40px 30px;
     }
 }
-
-
-
 @media only screen and (min-width: 768px) {
     
 }
