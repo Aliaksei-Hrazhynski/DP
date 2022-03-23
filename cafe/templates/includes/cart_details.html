@@ -1,124 +1,123 @@
 {% load static %}
 {% block cart %}
-
 <div class="middle">
     <div class="push50"></div>
     <div class="push50"></div>
     <div class="container">
         <div class="mini-container">
             <h1>Корзина</h1>
-
             {% for item in cart %}
-
              <div class="content">
-                <div class="cart-body" id="msCart">
-              <div class="element" id="2f7be4df44a420a501d1caa006ce6596">
-        <form action='http://127.0.0.1:8000/cart/cart_remove/' method="post" class="ms2_form">
-            {% csrf_token %}
-            <input type="hidden" name="key" value="2f7be4df44a420a501d1caa006ce6596">
-            <button class="element-delete" type="submit" name="ms2_action" value="cart/remove" title="Удалить"><i class="material-icons">close</i></button>
-            <input type="hidden" name="id" value="{{ item.dish.id }}">
-        </form>
-        <div class="row">
-            <div class="col-sm-8">
-                <div class="subelement2 relative">
-                         <div class="element-img relative" style="background:  50% 50% no-repeat; background-size: contain;">
-                             <img src="{% static item.dish.image %}" alt="{{dish.title}}">
-                            <a href="svinina-na-kostochke.html" class="absolute"></a>
-                        </div>
-                    <div class="text">
-                        <div class="table">
-                            <div class="table-cell">
-                                <div class="title-h4"><a href="http://127.0.0.1:8000/dish/{{item.dish.id}}" class="decoration-none">{{ item.dish.title }}</a></div>
-                                <div class="introtext f14 gray">{{item.dish.description|safe}}</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="push20 visible-xs"></div>
-            </div>
-            <div class="col-sm-4">
-                <div class="subelement1 relative">
-                    <div class="row">
-                        <div class="col-xs-6 text-center-sm">
-                            <div class="element-price">
-                                <div class="table">
-                                    <div class="table-cell">
-                                        <span class="black f20"><b>{{ item.total_price }}</b> руб.</span>
-                                        <br>
-                                        <span class="gray f14">Вес: 250 гр.</span>
+                 <div class="cart-body" id="msCart">
+                    <div class="element" id="2f7be4df44a420a501d1caa006ce6596">
+                        <form action='http://127.0.0.1:8000/cart/cart_remove/' method="post" class="ms2_form">
+                            {% csrf_token %}
+                            <input type="hidden" name="key" value="2f7be4df44a420a501d1caa006ce6596">
+                            <button class="element-delete" type="submit" name="ms2_action" title="Удалить"><i class="material-icons">close</i></button>
+                            <input type="hidden" name="id" value="{{ item.dish.id }}">
+                        </form>
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="subelement2 relative">
+                                     <div class="element-img relative" style="background:  50% 50% no-repeat; background-size: contain;">
+                                         <img src="{% static item.dish.image %}" alt="{{item.dish.title}}">
+                                         <a href="svinina-na-kostochke.html" class="absolute"></a>
+                                    </div>
+                                    <div class="text">
+                                        <div class="table">
+                                            <div class="table-cell">
+                                                <div class="title-h4"><a href="http://127.0.0.1:8000/dish/{{item.dish.id}}" class="decoration-none">{{ item.dish.title }}</a></div>
+                                                <div class="introtext f14 gray">{{item.dish.description|safe}}</div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="push20 visible-xs"></div>
                             </div>
-                        </div>
-                        <div class="col-xs-6 text-right-xs text-left-sm">
-                            <div class="element-counter">
-                                <div class="table">
-                                    <div class="table-cell">
-                                        <div class="input-group">
-                                            <form action='http://127.0.0.1:8000/cart/cart_add/' method="post" class="ms2_form" role="form">
-                                                <input type="hidden" name="key" value="2f7be4df44a420a501d1caa006ce6596">
-                                                <div class="input-group">
-                                                    <span class="input-group-btn">
-                                                        <button type="button" class="btn-number btn-minus" data-type="minus" data-field="count-{{item.dish.id}}">-</button>
-                                                    </span>
-                                                    <input type="text" name="count" id="count-{{item.dish.id}}" class="form-control input-number" value="{{item.quantity}}" data-min="1" data-max="99999999">
-                                                    <span class="input-group-btn">
-                                                        <button type="button" class="btn-number btn-plus" data-type="plus" data-field="count-{{item.dish.id}}">+</button>
-                                                    </span>
+                            <div class="col-sm-4">
+                                <div class="subelement1 relative">
+                                    <div class="row">
+                                        <div class="col-xs-6 text-center-sm">
+                                            <div class="element-price">
+                                                <div class="table">
+                                                    <div class="table-cell">
+                                                        <span class="black f20"><b>{{ item.dish.price }}</b> руб.</span>
+                                                        <br>
+                                                        <span class="gray f14">Вес: 250 гр.</span>
+                                                    </div>
                                                 </div>
-                                                <button class="btn btn-default" type="submit" name="ms2_action" value="cart/change"><i class="glyphicon glyphicon-refresh"></i></button>
-                                            </form>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6 text-right-xs text-left-sm">
+                                            <div class="element-counter">
+                                                <div class="table">
+                                                    <div class="table-cell">
+                                                        <div class="input-group">
+                                                            <form action='http://127.0.0.1:8000/cart/cart_update/' method="post" class="ms2_form" >
+                                                                {% csrf_token %}
+                                                                <input type="hidden" name="key" value="2f7be4df44a420a501d1caa006ce6596">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-btn">
+                                                                        <button type="button" class="btn-number btn-minus" data-type="minus" data-field="count-{{item.dish.id}}">-</button>
+                                                                    </span>
+                                                                    <input type="text" name="quantity" id="count-{{item.dish.id}}" class="form-control input-number" value="{{item.quantity}}" data-min="1" data-max="99999999">
+
+                                                                        <span class="input-group-btn">
+
+                                                                            <button type="submit" class="btn-number btn-plus" data-type="plus" data-field="count-{{item.dish.id}}">+</button>
+
+                                                                        </span>
+
+                                                                </div>
+                                                                <button class="btn btn-default" type="submit1" name="ms2_action" value="cart/change"><i class="glyphicon glyphicon-refresh"></i>1111</button>
+                                                                    <input type="hidden" name="dish_id" value="{{ item.dish.id }}">
+                                                                    <input type="hidden" name="update_quantity" value="True">
+                                                                    <input type="hidden" name="dish" value="{{ item.dish }}">
+
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    {% endfor %}
-<div class="cart-total-wrapper">
-    <div class="push30"></div>
-
-    <div class="row">
-        <div class="col-sm-6 col-sm-push-6 text-right-sm black f18">
-            <div class="push5"></div>
-            <span>Итого: </span>
-            <span class="total_count">
-                <span class="ms2_total_count">{{ cart|length }}</span>
-                шт.                    </span>
-            на сумму
-            <span class="total_cost">
-                <span class="ms2_total_cost bold f22">{{ cart.get_total_price }}</span>
-                руб.                    </span>
-            <div class="push20"></div>
-        </div>
-        <div class="col-sm-6 col-sm-pull-6">
-            <div class="push3"></div>
-
-
-            <form action=''method="post" style="display: inline;">
-                {% csrf_token %}
-                <button class="btn" type="submit" name="ms2_action" value="cart/clean" title="Очистить корзину">
-                    <i class="material-icons">delete_forever</i>
-                </button>
-                <input type="hidden" name="dish" value="{{ item.dish.id }}">
-            </form>
-            <a href="oformlenie-zakaza" class="btn invert">Оформить заказ <i class="material-icons">arrow_forward</i></a>
-         </div>
-    </div>
-</div>
-</div>
+                    {% endfor %}
+                    <div class="cart-total-wrapper">
+                        <div class="push30"></div>
+                        <div class="row">
+                            <div class="col-sm-6 col-sm-push-6 text-right-sm black f18">
+                                <div class="push5"></div>
+                                <span>Итого: </span>
+                                <span class="total_count">
+                                    <span class="ms2_total_count">{{ cart|length }}</span>
+                                    шт.                    </span>
+                                на сумму
+                                <span class="total_cost">
+                                    <span class="ms2_total_cost bold f22">{{ cart.get_total_price }}</span>
+                                    руб.                    </span>
+                                <div class="push20"></div>
+                            </div>
+                            <div class="col-sm-6 col-sm-pull-6">
+                                <div class="push3"></div>
+                                <form action='http://127.0.0.1:8000/cart/cart_clear/'method="post" style="display: inline;">
+                                    {% csrf_token %}
+                                    <button class="btn" type="submit" name="ms2_action" value="cart/clean" title="Очистить корзину">
+                                        <i class="material-icons">delete_forever</i>
+                                    </button>
+                                    <input type="hidden" name="dish" value="{{ item.dish.id }}">
+                                </form>
+                                <a href="oformlenie-zakaza" class="btn invert">Оформить заказ <i class="material-icons">arrow_forward</i></a>
+                             </div>
+                        </div>
                     </div>
-
-
-                    <div class="push30"></div>
-
                 </div>
-
             </div>
+            <div class="push30"></div>
         </div>
+    </div>
+</div>
 {% endblock %}
