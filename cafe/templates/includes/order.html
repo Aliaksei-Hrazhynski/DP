@@ -1,0 +1,93 @@
+{% load static %}
+{% block order %}
+<div class="middle">
+    <div class="push50"></div>
+    <div class="push50"></div>
+    <div class="container">
+        <div class="mini-container">
+            <h1>Оформление заказа</h1>
+            <div class="content">
+                <div class="order-wrapper">
+                    <form action="http://127.0.0.1:8000/order_create/" class="form-horizontal ms2_form" id="msOrder" method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6 col-lg-5">
+                                <h5 class="black"><i class="material-icons">person</i> Заполните следующую информацию:</h5>
+                                <div class="push20"></div>
+                                <div class="form-group input-parent required">
+                                    <input type="text" id="receiver" placeholder="Имя" name="first_name" value="" class="form-control required">
+                                </div>
+                                <div class="form-group input-parent required">
+                                        <input type="tel" id="phone1" placeholder="Телефон" name="phone" value="" class="form-control required" pattern="[\+]375\(]\d{2}[\)]\d{3}[\-]\d{2}[\-]\d{2}" title="Используйте формат: +375(33)333-33-33">
+                                    </div>
+                                                    <div class="form-group input-parent">
+                                        <input type="email" id="email" placeholder="Email" name="email" value="" class="form-control">
+                                    </div>
+                                                    <div class="form-group input-parent">
+                                        <input type="datetime-local" id="date_delivery" placeholder="Дата доставки" name="date_delivery" value="" class="form-control">
+                                    </div>
+                                <div class="push30"></div>
+                            </div>
+                            <div class="col-md-6 col-lg-6 col-lg-offset-1">
+                                <div id="deliveries">
+                                    <h5 class="black"><i class="material-icons">local_shipping</i> Выберите вариант доставки:</h5>
+                                    <div class="push20"></div>
+                                    <div class="form-group">
+                                         <div class="customradio">
+                                             <input type="radio" name="delivery" value="1" id="delivery_1" data-payments="[1,3]" checked="">
+                                             <label class="delivery input-parent" for="delivery_1">Самовывоз</label>
+                                             <p class="small">мкр-н. Лесной, д. 8</p>
+                                         </div>
+                                        <div class="customradio">
+                                            <input type="radio" name="delivery" value="2" id="delivery_2" data-payments="[1,3]">
+                                            <label class="delivery input-parent" for="delivery_2">Доставка курьером</label>
+                                           <p class="small">Минимальный заказ для бесплатной доставки 100 руб. Если заказ на сумму менее 100 руб, стоимость доставки составляет 10 руб.                                    </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="push30"></div>
+                                <h5><i class="material-icons">payment</i> Оплата:</h5>
+                                <div class="push20"></div>
+                                <div class="form-group">
+                                                                                                <div class="customradio">
+                                                <input type="radio" name="payment" value="1" id="payment_1" checked="">
+                                                <label class="payment input-parent" for="payment_1">Оплата наличными</label>
+
+
+                                            </div>
+                                                                                                <div class="customradio">
+                                                <input type="radio" name="payment" value="3" id="payment_3">
+                                                <label class="payment input-parent" for="payment_3">Банковской картой</label>
+
+                                                                                    <p class="small">
+                                                        Оплата картами Visa, MasterCard, Maestro, МИР (эквайринг на шаблоне не подключен)                                    </p>
+
+                                            </div>
+                                                            </div>
+                           </div>
+                        </div>
+                        <div class="push30"></div>
+
+
+                        <div class="row min">
+                            <div class="col-sm-6 col-sm-push-6  text-right-sm black f18">
+                                <span>Итого:</span> <span id="ms2_order_cost" class="bold f22">{{ cart.get_total_price }}</span> руб.                <div class="push20"></div>
+                            </div>
+                            <div class="col-sm-6 col-sm-pull-6">
+                                <a href="http://127.0.0.1:8000/cart/cart_details/" class="tpl-btn"><i class="material-icons">arrow_back</i> Назад</a>
+                                <button type="submit" name="ms2_action" value="order/submit" class="btn ms2_link invert">Сделать заказ! <i class="material-icons">send</i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+</div>
+
+
+                    </div>
+                    <div class="push30"></div>
+
+                </div>
+
+            </div>
+        </div>
+{% endblock %}

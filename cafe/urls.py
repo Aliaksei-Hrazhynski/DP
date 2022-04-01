@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from .views import index, payment, dish_details
-from cafe import models
+from orders.views import order, order_create
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,6 +25,7 @@ urlpatterns = [
     path('cart/', include('cart.urls'), name='cart'),
     path('', index),
     path('dish/<int:pk>', dish_details, name="dish_details"),
-
     path('payment/', payment),
+    path('order/', order),
+    path('order_create/', order_create),
 ]

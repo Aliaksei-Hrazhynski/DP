@@ -5,16 +5,18 @@ from cafe.models import Dish
 
 class Order(models.Model):
     first_name = models.CharField(max_length=50)
-    phone = PhoneNumberField(unique=True, null=False, blank=False)
+    phone = PhoneNumberField(null=False, blank=False)
     email = models.EmailField()
     address_delivery = models.CharField(max_length=250)
-    date_delivery = models.DateField()
-    date_created = models.DateTimeField(auto_now_add=True)
+    """date_delivery = models.DateTimeField()
+    date_created = models.DateTimeField()"""
     moderation = models.BooleanField(default=False)
-    paid = models.BooleanField(default=False)
+    delivery = models.CharField(max_length=50, null=True, blank=True)
+    payment = models.CharField(max_length=50, null=True, blank=True)
+    total_price = models.PositiveIntegerField(null=True, blank=True)
 
     class Meta:
-        ordering = ('-date_created',)
+        ordering = ('first_name',)
 
     def __str__(self):
         return 'Order {}'.format(self.id)
